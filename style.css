@@ -1,0 +1,81 @@
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 10px solid green;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.ifrn-logo {
+  width: 100px;
+  height: 120px;
+  padding-top: 2rem;
+}
+
+.menu {
+  position: relative;
+  left: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+}
+
+.title {
+  color: #36454F;
+  flex-basis: 400px;
+  align-self: end;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.0em;
+  padding-top: 2rem;
+  padding-bottom: 0rem;
+}
+
+.napne-logo {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar-menu>button {
+  padding: 0;
+  border: none;
+  background: none;
+  gap: 12px;
+  align-items: center;
+  height: 0px;
+  width: 200px;
+  font-family: "Ubuntu";
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1;
+  padding: 0 22px;
+  transition: all 0.4s;
+  left: 40px;
+}
+
+[data-screen] {
+  color: green;
+  font-family: 'Ubuntu';
+  position: relative;
+  left: 40px;
+  padding-top: 2rem;
+}
+
+.p-text {
+  font-family: 'Ubuntu';
+  width: 80%;
+}
+
+[data-logo] {
+  cursor: pointer;
+}
