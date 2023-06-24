@@ -15,10 +15,10 @@ hr {
 
 .menu {
   position: relative;
-  left: 40px;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem 4rem;
+  padding: 0rem 2rem;
 }
 
 .title {
@@ -66,9 +66,8 @@ hr {
 [data-screen] {
   color: green;
   font-family: 'Ubuntu';
-  position: relative;
-  left: 40px;
   padding-top: 2rem;
+  padding: 0rem 2rem;
 }
 
 .p-text {
