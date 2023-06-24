@@ -73,6 +73,7 @@ hr {
 .p-text {
   font-family: 'Ubuntu';
   width: 80%;
+  color: black;
 }
 
 [data-logo] {
