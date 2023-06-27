@@ -49,18 +49,18 @@ hr {
   padding: 0;
   border: none;
   background: none;
-  gap: 12px;
+  gap: 0px;
   align-items: center;
   height: 0px;
-  width: 200px;
   font-family: "Ubuntu";
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 1;
-  padding: 0 22px;
+  padding: 0rem 5rem;
   transition: all 0.4s;
   left: 40px;
+  cursor: pointer;
 }
 
 [data-screen] {
@@ -78,4 +78,13 @@ hr {
 
 [data-logo] {
   cursor: pointer;
+}
+
+.a {
+  text-align: center;
+}
+
+.ab {
+  width: 50%;
+  padding: 2rem 0rem;
 }

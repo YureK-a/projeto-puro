@@ -24,7 +24,7 @@ ifrnLogo.addEventListener('click', () => {
 
 nav.addEventListener('click', e => {
   const clickedElement = e.target.parentElement.dataset.button
-  
+
   if (clickedElement === 'noticias') {
     actualScreen.firstElementChild.remove()
     actualScreen.removeAttribute('class', 'napne-logo')
@@ -39,28 +39,51 @@ nav.addEventListener('click', e => {
     h1.textContent = 'Notícias'
     p.textContent = loremIpsum
     actualScreen.dataset.screen = 'noticias'
-    
+
     div.append(h1, p)
     actualScreen.append(div)
   }
 
-  if (clickedElement === 'proposta') {
+  if (clickedElement === 'apresentacao') {
     actualScreen.firstElementChild.remove()
     actualScreen.removeAttribute('class', 'napne-logo')
 
-    const h1 = document.createElement('h1')
-    const a = document.createElement('a')
+    const p = document.createElement('p')
     const div = document.createElement('div')
 
-    a.setAttribute('class', 'p-text')
-    a.setAttribute('href', './docs/Regimento Interno_ NAPNE IFRN_aprovado Consup(1).pdf')
-    h1.setAttribute('class', 'proposta-screen')
-
-    h1.textContent = 'Proposta'
-    a.textContent = loremIpsum2
-    actualScreen.dataset.screen = 'proposta'
-
-    div.append(h1, a)
+    p.setAttribute('class', 'p-text')
+  
+    actualScreen.dataset.screen = 'apresentacao'
+    div.innerHTML += `  
+  <div class="c">
+    <div class="b">
+      <div class="a">
+        <img class='ab' src="./imgs/img1.png">
+        <img class='ab' src="./imgs/img2.png">
+        <img class='ab' src="./imgs/img3.png">
+        <img class='ab' src="./imgs/img4.png">
+        <img class='ab' src="./imgs/img5.png">
+        <img class='ab' src="./imgs/img6.png">
+        <img class='ab' src="./imgs/img7.png">
+        <img class='ab' src="./imgs/img8.png">
+        <img class='ab' src="./imgs/img9.png">
+        <img class='ab' src="./imgs/img10.png">
+        <img class='ab' src="./imgs/img11.png">
+        <img class='ab' src="./imgs/img12.png">
+        <img class='ab' src="./imgs/img13.png">
+        <img class='ab' src="./imgs/img14.png">
+        <img class='ab' src="./imgs/img15.png">
+        <img class='ab' src="./imgs/img16.png">
+        <img class='ab' src="./imgs/img17.png">
+        <img class='ab' src="./imgs/img18.png">
+        <img class='ab' src="./imgs/img19.png">
+        <img class='ab' src="./imgs/img20.png">
+        <img class='ab' src="./imgs/img21.png">
+        <img class='ab' src="./imgs/img22.png">
+      </div>
+    </div>
+  </div>
+  `
     actualScreen.append(div)
   }
 
@@ -80,6 +103,26 @@ nav.addEventListener('click', e => {
     actualScreen.dataset.screen = 'contato'
 
     div.append(h1, p)
+    actualScreen.append(div)
+  }
+
+  if (clickedElement === 'regimento') {
+    actualScreen.firstElementChild.remove()
+    actualScreen.removeAttribute('class', 'napne-logo')
+
+    const h1 = document.createElement('h1')
+    const a = document.createElement('a')
+    const div = document.createElement('div')
+
+    a.setAttribute('class', 'p-text')
+    a.setAttribute('href', './docs/Regimento Interno_ NAPNE IFRN_aprovado Consup(1).pdf')
+    h1.setAttribute('class', 'proposta-screen')
+
+    h1.textContent = 'Regimento Interno'
+    a.textContent = loremIpsum2
+    actualScreen.dataset.screen = 'regimento'
+
+    div.append(h1, a)
     actualScreen.append(div)
   }
 })
