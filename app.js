@@ -37,7 +37,19 @@ nav.addEventListener('click', e => {
     h1.setAttribute('class', 'noticias-screen')
 
     h1.textContent = 'Notícias'
-    p.textContent = loremIpsum
+    p.innerHTML += `
+    <div class="row">
+      <div class="column">
+        <img src="./imgs/noticia1.jpeg" style="width: 60%">
+      </div>
+      <div class="column">
+        <img src="./imgs/noticia2.jpeg" style="width: 60%">
+      </div>
+      <div class="column">
+        <img src="./imgs/noticia3.jpeg" style="width: 80%; height: 100%">
+      </div>
+    </div>
+    `
     actualScreen.dataset.screen = 'noticias'
 
     div.append(h1, p)
