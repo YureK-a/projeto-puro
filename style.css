@@ -11,6 +11,7 @@ hr {
   width: 100px;
   height: 120px;
   padding-top: 2rem;
+  margin-left: 3rem;
 }
 
 .menu {
@@ -88,4 +89,21 @@ hr {
   float: left;
   width: 33.33%;
   padding: 5px;
+<<<<<<< HEAD
 }
+=======
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.row {
+  position: relative;
+  text-align: center;
+  left: 60px;
+}
+>>>>>>> 3943eaf0c5b236b932b41cd279d7b26880300e0f
