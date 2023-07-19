@@ -125,16 +125,19 @@ nav.addEventListener('click', e => {
     const h1 = document.createElement('h1')
     const a = document.createElement('a')
     const div = document.createElement('div')
+    const a2 = document.createElement('a')
 
     a.setAttribute('class', 'p-text')
     a.setAttribute('href', './docs/Regimento Interno_ NAPNE IFRN_aprovado Consup(1).pdf')
-    h1.setAttribute('class', 'proposta-screen')
+    a2.setAttribute('class', 'p-text')
+    a2.setAttribute('href', './docs/regimento.pdf')
 
     h1.textContent = 'Regimento Interno'
     a.textContent = loremIpsum2
     actualScreen.dataset.screen = 'regimento'
+    a2.textContent = 'reigmento 2'
 
-    div.append(h1, a)
+    div.append(h1, a, a2)
     actualScreen.append(div)
   }
 })

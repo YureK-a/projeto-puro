@@ -3,7 +3,7 @@ hr {
   height: 1px;
   border: 0;
   border-top: 10px solid green;
-  margin: 1em 0;
+  margin: 0em 0;
   padding: 0;
 }
 
@@ -17,8 +17,6 @@ hr {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem 4rem;
-  padding: 0rem 2rem;
 }
 
 .title {
@@ -39,18 +37,16 @@ hr {
   background-size: cover;
   position: relative;
   text-align: center;
+  top: 20px;
 }
 
 .navbar {
   display: flex;
 }
 
-.navbar-menu>button {
-  padding: 0;
+.nav-button {
   border: none;
   background: none;
-  gap: 0px;
-  align-items: center;
   height: 0px;
   font-family: "Ubuntu";
   font-size: 16px;
@@ -59,7 +55,6 @@ hr {
   line-height: 1;
   padding: 0rem 5rem;
   transition: all 0.4s;
-  left: 40px;
   cursor: pointer;
 }
 
@@ -93,17 +88,4 @@ hr {
   float: left;
   width: 33.33%;
   padding: 5px;
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.row {
-  position: relative;
-  text-align: center;
-  left: 60px;
 }
