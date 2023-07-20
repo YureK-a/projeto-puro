@@ -10,7 +10,9 @@ hr {
 .ifrn-logo {
   width: 100px;
   height: 120px;
-  padding-top: 2rem;
+  padding-top: 1rem;
+  margin-left: 7rem;
+  margin-bottom: 1rem;
 }
 
 .menu {
@@ -28,6 +30,8 @@ hr {
   line-height: 1.0em;
   padding-top: 2rem;
   padding-bottom: 0rem;
+  margin-left: 2rem;
+  margin-bottom: 22px;
 }
 
 .napne-logo {
@@ -37,18 +41,20 @@ hr {
   background-size: cover;
   position: relative;
   text-align: center;
-  top: 20px;
+  top: 15px;
+  
 }
 
 .navbar {
   display: flex;
+  margin-left: 3rem;
 }
 
 .nav-button {
   border: none;
   background: none;
   height: 0px;
-  font-family: "Ubuntu";
+  font-family: "Tahoma";
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 2px;
@@ -60,13 +66,13 @@ hr {
 
 [data-screen] {
   color: green;
-  font-family: 'Ubuntu';
+  font-family: 'Tahoma';
   padding-top: 2rem;
   padding: 0rem 2rem;
 }
 
 .p-text {
-  font-family: 'Ubuntu';
+  font-family: 'Tahoma';
   width: 80%;
   color: black;
 }
@@ -89,3 +95,45 @@ hr {
   width: 33.33%;
   padding: 5px;
 }
+
+.margin{
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+
+.fonttt{
+  font-size: 45px;
+  margin-top: 2rem;
+  font-weight: bold;
+}
+.fontp{
+  font-size: 20px;
+  margin-left: 6rem;
+  margin-right: 6rem;
+  color:black;
+
+
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: green;
+  color: white;
+}
+
