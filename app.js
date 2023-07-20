@@ -11,7 +11,7 @@ ifrnLogo.addEventListener('click', () => {
     actualScreen.setAttribute('class', 'napne-logo')
 
     const img = document.createElement('img')
-    img.setAttribute('src', './imgs/napne.png')
+    img.setAttribute('src', './imgs/pagina.png')
 
     actualScreen.dataset.screen = 'initial'
     actualScreen.append(img)
