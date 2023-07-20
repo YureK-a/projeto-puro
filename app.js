@@ -107,7 +107,7 @@ nav.addEventListener('click', e => {
     h1.setAttribute('class', 'proposta-screen')
 
     h1.textContent = 'Contato'
-    p.textContent = loremIpsum3
+    p.textContent = 'insira aqui os contatos'
     actualScreen.dataset.screen = 'contato'
 
     div.append(h1, p)
@@ -129,8 +129,8 @@ nav.addEventListener('click', e => {
     a2.setAttribute('href', './docs/regimento.pdf')
 
     h1.textContent = 'Regimento Interno'
-    a.textContent = loremIpsum2
-    actualScreen.dataset.screen = 'regimento'
+    a.textContent = 'regimento 1'
+    actualScreen.dataset.screen = 'regimento 2'
     a2.textContent = 'reigmento 2'
 
     div.append(h1, a, a2)
