@@ -194,10 +194,10 @@ nav.addEventListener('click', e => {
   </table>
   </div>
   `
-
-
     div.append(h1, p)
     actualScreen.append(div)
+
+    scrollTo(0, 400)
   }
 
   if (clickedElement === 'regimento') {
