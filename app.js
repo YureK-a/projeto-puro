@@ -111,7 +111,8 @@ nav.addEventListener('click', e => {
     
     div.innerHTML += `
   <div class="margin"><div class="fonttt">Contatos</div></div>
-  <div class="fontp"><p> ⠀⠀⠀⠀Para entrar em contato conosco basta ligar para o número de qualquer um dos profissionais do Napne. Os seus contatos estão disponivéis logo abaixo.</p></div>
+  <div class="fontp"><p> ⠀⠀⠀⠀Para entrar em contato conosco basta ligar para o número de qualquer um dos profissionais do Napne.
+   Os seus contatos estão disponivéis logo abaixo.</p></div>
   <div class="margin">
   <table id="customers">
   <tr>
@@ -196,9 +197,10 @@ nav.addEventListener('click', e => {
   `
     div.append(h1, p)
     actualScreen.append(div)
-
+    
     scrollTo(0, 400)
   }
+
 
   if (clickedElement === 'regimento') {
     actualScreen.firstElementChild.remove()
@@ -214,11 +216,20 @@ nav.addEventListener('click', e => {
     a2.setAttribute('class', 'p-text')
     a2.setAttribute('href', './docs/regimento.pdf')
 
-    h1.textContent = 'Regimento Interno'
-    a.textContent = 'regimento 1'
-    actualScreen.dataset.screen = 'regimento 2'
-    a2.textContent = 'reigmento 2'
-
+    div.innerHTML += `
+    <div class="margin"><div class="fonttt">Regimento</div></div>
+    <div class="fontp"><p> ⠀⠀⠀⠀O Napne é um departamento do IFRN. No campus Mossoró não é excessão, 
+    trabalhamos sobre um regimento que possui varios artigos. Com o intuito de garantir que a
+    pluralidade no campus seja mantida de forma que todos os estudantes que tenha necessidades
+    especiais, tenham essas necessidades sanadas e atendidas da melhor forma possivel.<br>⠀⠀⠀⠀O Napne visa pela transparencia, dessa forma o nosso regimento interno está disponibilizado
+    de forma que qualquer aluno ou docente possa acessa-lo e se tornar ciente 
+    de seus direitos e toda a extensão que o Nanpe pode prestar.</p></div>
+    <div><a href="./docs/regimento1.pdf" style="text-decoration-line:none;"><p class="link">Clique para baixar o regimento</p></a></div>
+    <div class="fontp"><p> ⠀⠀⠀⠀O Napne como qualquer instituição de assistencia publica, opera
+    seguindo duas leis que são frutos de muita luta pelos direitos das pessoas com necessidades
+    especiais. </p></div>
+    <div><a href="./docs/regimento1.pdf" style="text-decoration-line:none;"><p class="link">Clique aqui para baixar as leis</p></a></div>  
+    `
     div.append(h1, a, a2)
     actualScreen.append(div)
   }
