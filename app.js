@@ -94,11 +94,38 @@ nav.addEventListener('click', e => {
     campus e suas respectivas funções</p></div>
     <br>
     <br>
-    <center><div><img src='./imgs/prof1.png' width="900"></img></div></center>
 
-
+      <div class="carousel-container">
+        <div class="carousel">
+          <img src="./imgs/apre1.png" alt="Image 1">
+          <img src="./imgs/apre2.png" alt="Image 2">
+          <img src="./imgs/apre3.png" alt="Image 3">
+      </div>
   `
     actualScreen.append(div)
+
+    const carousel = document.querySelector('.carousel');
+    const images = carousel.querySelectorAll('img');
+
+    let currentIndex = 0;
+    const intervalTime = 5000; // Change the time (in milliseconds) for the carousel to transition to the next image.
+    let timer;
+
+    function startCarousel() {
+      timer = setInterval(showNextImage, intervalTime);
+    }
+
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    }
+
+    function updateCarousel() {
+      const offset = -currentIndex * images[0].width;
+      carousel.style.transform = `translateX(${offset}px)`;
+    }
+
+    startCarousel();
   }
 
   if (clickedElement === 'contato') {
@@ -240,4 +267,3 @@ nav.addEventListener('click', e => {
     actualScreen.append(div)
   }
 })
-
