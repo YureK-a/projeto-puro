@@ -29,22 +29,37 @@ nav.addEventListener('click', e => {
     const p = document.createElement('p')
     const div = document.createElement('div')
 
-    p.setAttribute('class', 'p-text')
-    h1.setAttribute('class', 'noticias-screen')
 
-    h1.textContent = 'Notícias'
     p.innerHTML += `
-    <div class="row">
-      <div class="column">
-        <img src="./imgs/noticia1.jpeg" style="width: 60%">
-      </div>
-      <div class="column">
-        <img src="./imgs/noticia2.jpeg" style="width: 60%">
-      </div>
-      <div class="column">
-        <img src="./imgs/noticia3.jpeg" style="width: 80%; height: 100%">
-      </div>
-    </div>
+    <div class="margin"><div class="fonttt">Notícias</div></div>
+    <div class="fontp"><p> ⠀⠀⠀⠀O Napne atualmente conta com 67 estudantes matriculados que possuem
+    necessidades especiais. Para fornecer a melhor assistencia possivel realizamos atividades que buscam
+    a inclusão e estamos sempre inovando para que nossos estudantes se sintam acolhidos. Atividades que são sempre
+    acompanhadas por profissionais do Napne e também alunos do campus.</p></div>
+    <br>
+    <div class="titulo">⠀⠀⠀⠀Apoio direto não só em sala de aula, como também, nos arredores do campus
+     com a ajuda de profissionais especializados dedicados ao auxílio.</div>
+    <br>
+    <center><div><img src='./imgs/not1.png' width="700"></img></div></center>
+    <br>
+    <br>
+    <div class="titulo">⠀⠀⠀⠀Visita realizada no ano de 2023 com fins educativos
+     ao Centro de Apoio ao Deficiente Visual (CADV).</div>
+    <br>
+    <center><div><img src='./imgs/not2.png' width="700"></img></div></center>
+    <br>
+    <br>
+    <div class="titulo">⠀⠀⠀⠀Palestra sobre “inclusão e diversidade: Ações da psicopedagogia
+     e da educação em contexto de mudança”. Realizada no ano de 2023..</div>
+    <br>
+    <center><div><img src='./imgs/not3.png' width="700"></img></div><center>
+    <br>
+    <br>
+    <div class="titulo">⠀⠀⠀⠀Participação em peça teatral de uma aluna com cegueira.
+    Realizada nos primeiros semestres de 2023.</div>
+    <br>
+    <center><div><img src='./imgs/not4.png' width="700"></img></div></center>
+    
     `
     actualScreen.dataset.screen = 'noticias'
 
@@ -61,36 +76,21 @@ nav.addEventListener('click', e => {
 
     p.setAttribute('class', 'p-text')
   
-    actualScreen.dataset.screen = 'apresentacao'
     div.innerHTML += `  
-  <div class="c">
-    <div class="b">
-      <div class="a">
-        <img class='ab' src="./imgs/img1.png">
-        <img class='ab' src="./imgs/img2.png">
-        <img class='ab' src="./imgs/img3.png">
-        <img class='ab' src="./imgs/img4.png">
-        <img class='ab' src="./imgs/img5.png">
-        <img class='ab' src="./imgs/img6.png">
-        <img class='ab' src="./imgs/img7.png">
-        <img class='ab' src="./imgs/img8.png">
-        <img class='ab' src="./imgs/img9.png">
-        <img class='ab' src="./imgs/img10.png">
-        <img class='ab' src="./imgs/img11.png">
-        <img class='ab' src="./imgs/img12.png">
-        <img class='ab' src="./imgs/img13.png">
-        <img class='ab' src="./imgs/img14.png">
-        <img class='ab' src="./imgs/img15.png">
-        <img class='ab' src="./imgs/img16.png">
-        <img class='ab' src="./imgs/img17.png">
-        <img class='ab' src="./imgs/img18.png">
-        <img class='ab' src="./imgs/img19.png">
-        <img class='ab' src="./imgs/img20.png">
-        <img class='ab' src="./imgs/img21.png">
-        <img class='ab' src="./imgs/img22.png">
-      </div>
-    </div>
-  </div>
+    <div class="margin"><div class="fonttt">Apresentação</div></div>
+    <div class="fontp"><p> ⠀⠀⠀⠀O núcleo deve ser composto por 08 (oito) membros, devendo compor, obrigatoriamente, caso esteja lotado no campus, pelo
+    menos 01 (um) discente, 01 (um) docente, 01 (um) psicólogo, 01 (um) Assistente Social, 01 (um) Intérprete de LIBRAS e 01 (um) (a)
+    Pedagogo (a) ou Técnico em Assuntos Educacionais, e 01 (um) representante da comunidade ligado à temática da inclusão social.</p></div>
+    <div class="fontp"><p> ⠀⠀⠀⠀Com o objetivo Integrar os diversos segmentos que compõem a comunidade do IFRN por
+    meio de ações de sensibilização que favoreçam a corresponsabilidade na construção da ação educativa de
+    inclusão social na Instituição. O napne possui vários prossionais contratado que buscam prestar
+    assistência aos alunos. Iremos alguns desses profiossionais que estão em exercício em nosso
+    campus e suas respectivas funções</p></div>
+    <br>
+    <br>
+    <center><div><img src='./imgs/prof1.png' width="900"></img></div></center>
+
+
   `
     actualScreen.append(div)
   }
@@ -205,7 +205,6 @@ nav.addEventListener('click', e => {
   if (clickedElement === 'regimento') {
     actualScreen.firstElementChild.remove()
     actualScreen.removeAttribute('class', 'napne-logo')
-    actualScreen.dataset.screen = 'regimento'
 
     const h1 = document.createElement('h1')
     const a = document.createElement('a')
@@ -235,3 +234,5 @@ nav.addEventListener('click', e => {
     actualScreen.append(div)
   }
 })
+
+  
