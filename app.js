@@ -205,6 +205,7 @@ nav.addEventListener('click', e => {
   if (clickedElement === 'regimento') {
     actualScreen.firstElementChild.remove()
     actualScreen.removeAttribute('class', 'napne-logo')
+    actualScreen.dataset.screen = 'regimento'
 
     const h1 = document.createElement('h1')
     const a = document.createElement('a')
