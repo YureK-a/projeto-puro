@@ -37,7 +37,7 @@ nav.addEventListener('click', e => {
     a inclusão e estamos sempre inovando para que nossos estudantes se sintam acolhidos. Atividades que são sempre
     acompanhadas por profissionais do Napne e também alunos do campus.</p></div>
     <br>
-    <div class="titulo">⠀⠀⠀⠀O Campus também recebeu material didáticos para estudantes com 
+    <div class="titulo">⠀⠀⠀⠀O Campus recebeu material didáticos para estudantes com 
     deficiência visual, buscando melhorar cada vez mais o aprendizado desses alunos.</div>
     <br>
     <center><div><img src='./imgs/cegos.jpg' width="700"></img></div></center>
