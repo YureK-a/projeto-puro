@@ -34,7 +34,7 @@ const ifrnLogo = document.querySelector('[data-logo="ifrn-logo"]');
 const popupContainer = document.querySelector('[data-pop="container"]');
 const loginInWithGoogleSubmitButton = document.querySelector('[data-login="google"]');
 const logoutSubmitButton = document.querySelector('[data-login="logout"]')
-const adminUsers = ['pHXtz03wMshqaKqLVOrjiMKx4zh2']
+const adminUsers = ['pHXtz03wMshqaKqLVOrjiMKx4zh2', 'Utv9ln2XQlOJDke6tGa5QNg1QbH3']
 const navBar = document.querySelector('[data-js="nav"]')
 
 //on snapshot => noticiasParagraph.innerHTML = invocação do for e do if do ADM
