@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getFirestore, collection, getDocs, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc, doc, deleteDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 // import { doc, setDoc } from "firebase/firestore"; 
 
@@ -98,12 +98,173 @@ const showUserInfoIfLogged = user => {
   }
 }
 
-const showInsertNoticiaButton = user => {
+const showAdminOnlyButtons = user => {
   const userUid = user.uid
+
   if (adminUsers.includes(userUid) && actualScreen.dataset.screen === 'noticias') {
-    actualScreen.innerHTML += `
-      <button data-js="insert_noticia">Cadastrar notícia</button>
-    `
+    // Criação do botão "Cadastrar notícia"
+    const addNoticiaButton = document.createElement('button');
+    addNoticiaButton.setAttribute('data-js', 'insert_noticia');
+    addNoticiaButton.textContent = 'Cadastrar notícia'
+
+    // Criação do overlay do popup
+    const addNoticiaPopupOverlay = document.createElement('div');
+    addNoticiaPopupOverlay.className = 'popup-overlay';
+    addNoticiaPopupOverlay.id = 'addNoticiaPopup';
+
+    // Criação do conteúdo do popup
+    const addNoticiaPopupContent = document.createElement('div');
+    addNoticiaPopupContent.className = 'popup-content';
+
+    // Criação do formulário
+    const addNoticiaForm = document.createElement('form');
+    addNoticiaForm.setAttribute('data-js', 'popup_form');
+
+    const addNoticiaPopupTitle = document.createElement('h4')
+    addNoticiaPopupTitle.textContent = 'Adicionar notícia'
+    addNoticiaForm.append(addNoticiaPopupTitle)
+
+    // Criação do campo de entrada "Título da notícia"
+    const addNoticiaInputTitulo = document.createElement('input');
+    addNoticiaInputTitulo.type = 'text';
+    addNoticiaInputTitulo.id = 'addNoticiaTitulo';
+    addNoticiaInputTitulo.placeholder = 'Título da notícia';
+    addNoticiaForm.appendChild(addNoticiaInputTitulo);
+
+    // Criação do campo de entrada "Texto da notícia"
+    const addNoticiaInputTexto = document.createElement('input');
+    addNoticiaInputTexto.type = 'text';
+    addNoticiaInputTexto.id = 'texto';
+    addNoticiaInputTexto.placeholder = 'Texto da notícia';
+    addNoticiaForm.appendChild(addNoticiaInputTexto);
+
+    // Criação do campo de entrada "URL da imagem da notícia"
+    const addNoticiaInputUrl = document.createElement('input');
+    addNoticiaInputUrl.type = 'url';
+    addNoticiaInputUrl.id = 'url';
+    addNoticiaInputUrl.placeholder = 'URL da imagem da notícia';
+    addNoticiaForm.appendChild(addNoticiaInputUrl);
+
+    // Criação do botão "Salvar"
+    const addNoticiaButtonSalvar = document.createElement('button');
+    addNoticiaButtonSalvar.setAttribute('data-js', 'submit');
+    addNoticiaButtonSalvar.className = 'close-btn';
+    addNoticiaButtonSalvar.textContent = 'Salvar';
+    addNoticiaForm.appendChild(addNoticiaButtonSalvar);
+
+    // Adiciona o formulário ao conteúdo do popup
+    addNoticiaPopupContent.appendChild(addNoticiaForm);
+
+    // Criação do botão "Fechar"
+    const addNoticiaButtonFechar = document.createElement('button');
+    addNoticiaButtonFechar.setAttribute('data-js', 'close');
+    addNoticiaButtonFechar.className = 'close-btn';
+    addNoticiaButtonFechar.textContent = 'Fechar';
+    addNoticiaPopupContent.appendChild(addNoticiaButtonFechar);
+
+    // Adiciona o conteúdo ao overlay do popup
+    addNoticiaPopupOverlay.appendChild(addNoticiaPopupContent);
+
+    // Criação do overlay do popup
+    const deleteNoticiaPopupOverlay = document.createElement('div');
+    deleteNoticiaPopupOverlay.className = 'popup-overlay';
+    deleteNoticiaPopupOverlay.id = 'deleteNoticiaPopup';
+
+    // Criação do conteúdo do popup
+    const deleteNoticiaPopupContent = document.createElement('div');
+    deleteNoticiaPopupContent.className = 'popup-content';
+
+    // Criação do formulário
+    const deleteNoticiaForm = document.createElement('form');
+    deleteNoticiaForm.setAttribute('data-js', 'popup_form');
+
+    const deleteNoticiaPopupTitle = document.createElement('h4')
+    deleteNoticiaPopupTitle.textContent = 'Deletar notícia'
+    deleteNoticiaForm.append(deleteNoticiaPopupTitle)
+
+    // Criação do campo de entrada "Título da notícia"
+    const deleteNoticiaInputTitulo = document.createElement('input');
+    deleteNoticiaInputTitulo.type = 'text';
+    deleteNoticiaInputTitulo.id = 'deleteNoticiaTitulo';
+    deleteNoticiaInputTitulo.placeholder = 'Título da notícia';
+    deleteNoticiaForm.appendChild(deleteNoticiaInputTitulo);
+
+    // Criação do botão "Salvar"
+    const deleteNoticiaButtonSalvar = document.createElement('button');
+    deleteNoticiaButtonSalvar.setAttribute('data-js', 'submit');
+    deleteNoticiaButtonSalvar.className = 'close-btn';
+    deleteNoticiaButtonSalvar.textContent = 'Salvar';
+    deleteNoticiaForm.appendChild(deleteNoticiaButtonSalvar);
+
+    // Adiciona o formulário ao conteúdo do popup
+    deleteNoticiaPopupContent.appendChild(deleteNoticiaForm);
+
+    // Criação do botão "Fechar"
+    const deleteNoticiaButtonFechar = document.createElement('button');
+    deleteNoticiaButtonFechar.setAttribute('data-js', 'close');
+    deleteNoticiaButtonFechar.className = 'close-btn';
+    deleteNoticiaButtonFechar.textContent = 'Fechar';
+    deleteNoticiaPopupContent.appendChild(deleteNoticiaButtonFechar);
+
+    // Adiciona o conteúdo ao overlay do popup
+    deleteNoticiaPopupOverlay.appendChild(deleteNoticiaPopupContent);
+
+    const deleteNoticiaButton = document.createElement('button')
+    deleteNoticiaButton.setAttribute('data-js', 'delete_noticia')
+    deleteNoticiaButton.textContent = 'Deletar notícia'
+
+    actualScreen.insertAdjacentElement('beforebegin', addNoticiaButton)
+    actualScreen.insertAdjacentElement('beforebegin', deleteNoticiaButton)
+    actualScreen.append(addNoticiaPopupOverlay)
+    actualScreen.append(deleteNoticiaPopupOverlay)
+
+    addNoticiaForm.addEventListener('submit', e => {
+      e.preventDefault()
+
+      const titulo = document.getElementById('addNoticiaTitulo').value.trim() 
+      const texto = document.getElementById('texto').value.trim()
+      const URL = document.getElementById('url').value.trim()
+
+      if (titulo && texto && URL) {
+        addDoc(collection(db, "noticias"), {
+          titulo: titulo,
+          texto: texto,
+          imagem: URL
+        })
+        document.getElementById('addNoticiaPopup').style.display = 'none'
+      }
+
+    })
+
+    deleteNoticiaForm.addEventListener('submit', async e => {
+      e.preventDefault()
+
+      const titulo = document.getElementById('deleteNoticiaTitulo').value.trim()
+      const selectedNoticiaToDeleteId = await Array.from(collectionNoticiasDocs.docs).filter(doc => doc.data().titulo === titulo)[0].id
+
+      if (selectedNoticiaToDeleteId) {
+        deleteDoc(doc(db, 'noticias', selectedNoticiaToDeleteId))
+      }
+
+      document.getElementById('deleteNoticiaPopup').style.display = 'none'
+    })
+
+    addNoticiaButton.addEventListener('click', () => {
+      document.getElementById('addNoticiaPopup').style.display = 'block'
+    })
+
+    addNoticiaButtonFechar.addEventListener('click', () => {
+      document.getElementById('addNoticiaPopup').style.display = 'none'
+    })
+
+    deleteNoticiaButton.addEventListener('click', () => {
+      document.getElementById('deleteNoticiaPopup').style.display = 'block'
+    })
+
+    deleteNoticiaButtonFechar.addEventListener('click', () => {
+      document.getElementById('deleteNoticiaPopup').style.display = 'none'
+    })
+
     return
   }
 }
@@ -111,7 +272,7 @@ const showInsertNoticiaButton = user => {
 const showInfo = user => {
   userObject = user
   showUserInfoIfLogged(user)
-  showInsertNoticiaButton(user)
+  showAdminOnlyButtons(user)
 }
 
 const handleSignOut = () => signOut(auth).then(() => {
@@ -119,6 +280,7 @@ const handleSignOut = () => signOut(auth).then(() => {
   logoutSubmitButton.classList.toggle('display_none')
   loginInWithGoogleSubmitButton.addEventListener('click', logInEvent)
   document.querySelector('[data-js="insert_noticia"]').remove()
+  document.querySelector('[data-js="delete_noticia"]').remove()
 }).catch(error => {
   console.log(error)
 })
@@ -128,11 +290,6 @@ onAuthStateChanged(auth, showInfo)
 logoutSubmitButton.addEventListener('click', handleSignOut)
 
 loginInWithGoogleSubmitButton.addEventListener('click', logInEvent)
-await setDoc(doc(db, "cities", "LA"), {
-  name: "Los Angeles",
-  state: "CA",
-  country: "USA"
-});
 
 // const paragraph = document.querySelector('[data-paragraph="text"]')
 
@@ -140,7 +297,7 @@ nav.addEventListener('click', e => {
   const clickedElement = e.target.parentElement.dataset.button;
 
   if (clickedElement === 'noticias') {
-    actualScreen.firstElementChild.remove();
+    Array.from(actualScreen.children).forEach(children => children.remove())
     actualScreen.removeAttribute('class', 'napne-logo');
     const h1 = document.createElement('h1');
     const p = document.createElement('p');
@@ -171,7 +328,7 @@ nav.addEventListener('click', e => {
     actualScreen.dataset.screen = 'noticias';
     div.append(h1, p, noticiasParagraph);
     actualScreen.append(div);
-    showInsertNoticiaButton(userObject)
+    showAdminOnlyButtons(userObject)
     // onSnapshot(collectionNoticias, snapshot => {
     //   snapshot.docs.forEach(docChange => {
     //     noticiasParagraph.innerHTML += `
@@ -189,13 +346,6 @@ nav.addEventListener('click', e => {
     // const closePopupButton = document.querySelector('[data-popup="close"]');
     // const nativeLoginForm = document.querySelector('[data-login="native"]')
 
-    // function abrirPopup() {
-    //   popup.style.display = 'block';
-    // }
-    // function fecharPopup() {
-    //   popup.style.display = 'none';
-    // }
-
     // openPopupButton.addEventListener('click', () => {
     //   abrirPopup();
     // });
@@ -204,7 +354,7 @@ nav.addEventListener('click', e => {
     // });
   }
   if (clickedElement === 'apresentacao') {
-    actualScreen.firstElementChild.remove();
+    Array.from(actualScreen.children).forEach(children => children.remove())
     actualScreen.removeAttribute('class', 'napne-logo');
     const p = document.createElement('p');
     const div = document.createElement('div');
@@ -249,7 +399,7 @@ nav.addEventListener('click', e => {
     startCarousel();
   }
   if (clickedElement === 'contato') {
-    actualScreen.firstElementChild.remove();
+    Array.from(actualScreen.children).forEach(children => children.remove())
     actualScreen.removeAttribute('class', 'napne-logo');
     const h1 = document.createElement('h1');
     const p = document.createElement('p');
@@ -348,7 +498,7 @@ nav.addEventListener('click', e => {
     scrollTo(0, 400);
   }
   if (clickedElement === 'regimento') {
-    actualScreen.firstElementChild.remove();
+    Array.from(actualScreen.children).forEach(children => children.remove())
     actualScreen.removeAttribute('class', 'napne-logo');
     const h1 = document.createElement('h1');
     const a = document.createElement('a');
