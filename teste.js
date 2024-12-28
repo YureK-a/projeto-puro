@@ -298,6 +298,12 @@ nav.addEventListener('click', e => {
 
   if (clickedElement === 'noticias') {
     Array.from(actualScreen.children).forEach(children => children.remove())
+    const addNoticiaButtonDoesExist = document.querySelector('[data-js="insert_noticia"]')
+    const deleteNoticiaButtonDoesExist = document.querySelector('[data-js="delete_noticia"]')
+    if (addNoticiaButtonDoesExist && deleteNoticiaButtonDoesExist) {
+      addNoticiaButtonDoesExist.remove()
+      deleteNoticiaButtonDoesExist.remove()
+    }
     actualScreen.removeAttribute('class', 'napne-logo');
     const h1 = document.createElement('h1');
     const p = document.createElement('p');
