@@ -105,7 +105,7 @@ const showAdminOnlyButtons = user => {
     // Criação do botão "Cadastrar notícia"
     const addNoticiaButton = document.createElement('button');
     addNoticiaButton.setAttribute('data-js', 'insert_noticia');
-    addNoticiaButton.classList.add('exemplo')
+    addNoticiaButton.classList.add('button-3')
     addNoticiaButton.textContent = 'Cadastrar notícia'
 
     // Criação do overlay do popup
@@ -212,7 +212,7 @@ const showAdminOnlyButtons = user => {
 
     const deleteNoticiaButton = document.createElement('button')
     deleteNoticiaButton.setAttribute('data-js', 'delete_noticia')
-    deleteNoticiaButton.classList.add('exemplo')
+    deleteNoticiaButton.classList.add('button-4')
     deleteNoticiaButton.textContent = 'Deletar notícia'
 
     actualScreen.insertAdjacentElement('beforebegin', addNoticiaButton)
