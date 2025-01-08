@@ -34,7 +34,7 @@ const ifrnLogo = document.querySelector('[data-logo="ifrn-logo"]');
 const popupContainer = document.querySelector('[data-pop="container"]');
 const loginInWithGoogleSubmitButton = document.querySelector('[data-login="google"]');
 const logoutSubmitButton = document.querySelector('[data-login="logout"]')
-const adminUsers = ['pHXtz03wMshqaKqLVOrjiMKx4zh2', 'Utv9ln2XQlOJDke6tGa5QNg1QbH3', '59ys2Ji4l0alWfEfkOVa5vLRxdS2']
+const adminUsers = ['pHXtz03wMshqaKqLVOrjiMKx4zh2', 'Utv9ln2XQlOJDke6tGa5QNg1QbH3']
 const navBar = document.querySelector('[data-js="nav"]')
 
 //on snapshot => noticiasParagraph.innerHTML = invocação do for e do if do ADM
@@ -105,7 +105,7 @@ const showAdminOnlyButtons = user => {
     // Criação do botão "Cadastrar notícia"
     const addNoticiaButton = document.createElement('button');
     addNoticiaButton.setAttribute('data-js', 'insert_noticia');
-    addNoticiaButton.classList.add('button-3')
+    addNoticiaButton.classList.add('exemplo')
     addNoticiaButton.textContent = 'Cadastrar notícia'
 
     // Criação do overlay do popup
@@ -212,8 +212,8 @@ const showAdminOnlyButtons = user => {
 
     const deleteNoticiaButton = document.createElement('button')
     deleteNoticiaButton.setAttribute('data-js', 'delete_noticia')
+    deleteNoticiaButton.classList.add('exemplo')
     deleteNoticiaButton.textContent = 'Deletar notícia'
-    deleteNoticiaButton.classList.add('button-4')
 
     actualScreen.insertAdjacentElement('beforebegin', addNoticiaButton)
     actualScreen.insertAdjacentElement('beforebegin', deleteNoticiaButton)
@@ -363,6 +363,12 @@ nav.addEventListener('click', e => {
   }
   if (clickedElement === 'apresentacao') {
     Array.from(actualScreen.children).forEach(children => children.remove())
+    const addNoticiaButtonDoesExist = document.querySelector('[data-js="insert_noticia"]')
+    const deleteNoticiaButtonDoesExist = document.querySelector('[data-js="delete_noticia"]')
+    if (addNoticiaButtonDoesExist && deleteNoticiaButtonDoesExist) {
+      addNoticiaButtonDoesExist.remove()
+      deleteNoticiaButtonDoesExist.remove()
+    }
     actualScreen.removeAttribute('class', 'napne-logo');
     const p = document.createElement('p');
     const div = document.createElement('div');
@@ -408,6 +414,12 @@ nav.addEventListener('click', e => {
   }
   if (clickedElement === 'contato') {
     Array.from(actualScreen.children).forEach(children => children.remove())
+    const addNoticiaButtonDoesExist = document.querySelector('[data-js="insert_noticia"]')
+    const deleteNoticiaButtonDoesExist = document.querySelector('[data-js="delete_noticia"]')
+    if (addNoticiaButtonDoesExist && deleteNoticiaButtonDoesExist) {
+      addNoticiaButtonDoesExist.remove()
+      deleteNoticiaButtonDoesExist.remove()
+    }
     actualScreen.removeAttribute('class', 'napne-logo');
     const h1 = document.createElement('h1');
     const p = document.createElement('p');
@@ -507,6 +519,12 @@ nav.addEventListener('click', e => {
   }
   if (clickedElement === 'regimento') {
     Array.from(actualScreen.children).forEach(children => children.remove())
+    const addNoticiaButtonDoesExist = document.querySelector('[data-js="insert_noticia"]')
+    const deleteNoticiaButtonDoesExist = document.querySelector('[data-js="delete_noticia"]')
+    if (addNoticiaButtonDoesExist && deleteNoticiaButtonDoesExist) {
+      addNoticiaButtonDoesExist.remove()
+      deleteNoticiaButtonDoesExist.remove()
+    }
     actualScreen.removeAttribute('class', 'napne-logo');
     const h1 = document.createElement('h1');
     const a = document.createElement('a');
